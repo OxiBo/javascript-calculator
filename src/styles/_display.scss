@@ -1,0 +1,24 @@
+div#display {
+  background-color: $DisplayColor;
+  font-family: $FontFamily;
+  font-size: 1.5em;
+  text-align: right;
+  margin-bottom: 15px;
+  border-radius: $borderRadius;
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+    height: 50px;
+    color: white;
+    border-radius: $borderRadius;
+    box-shadow: inset 0 0 10px #0000D1;
+  }
+
+  #operations-display {
+    border-bottom: 1px solid #000;
+    
+  }
+}
