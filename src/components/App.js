@@ -132,9 +132,12 @@ export default class App extends Component {
 
     if (fullExpression.length > 0 && !evaluated) {
       this.setState(prevState => ({
-        fullExpression: isOperator(prevState.lastClicked)
-          ? prevState.fullExpression.slice(0, -1).concat(clicked)
-          : prevState.fullExpression.replace(/\.$/, "").concat(clicked),
+        fullExpression:
+          /[+/*-]$/.test(prevState.fullExpression) && clicked !== "-"
+            ? prevState.fullExpression.replace(/[-+/*]+$/, "").concat(clicked)
+            : prevState.lastClicked === "-" && clicked === "-"
+            ? prevState.fullExpression
+            : prevState.fullExpression.replace(/\.$/, "").concat(clicked),
         currentVal: clicked,
         lastClicked: clicked,
         prevVal: isOperator(prevState.lastClicked)
@@ -158,6 +161,39 @@ export default class App extends Component {
       }));
     }
   };
+
+  // handleOperators = (e, pressed) => {
+  //   const clicked = pressed || e.target.innerHTML;
+  //   const { fullExpression, evaluated, currentVal } = this.state;
+
+  //   if (fullExpression.length > 0 && !evaluated) {
+  //     this.setState(prevState => ({
+  //       fullExpression: isOperator(prevState.lastClicked)
+  //         ? prevState.fullExpression.slice(0, -1).concat(clicked)
+  //         : prevState.fullExpression.replace(/\.$/, "").concat(clicked),
+  //       currentVal: clicked,
+  //       lastClicked: clicked,
+  //       prevVal: isOperator(prevState.lastClicked)
+  //         ? prevState.prevVal
+  //         : prevState.currentVal
+  //     }));
+  //   } else if (fullExpression.length === 0 && currentVal === "0") {
+  //     this.setState(prevState => ({
+  //       fullExpression: `0${clicked}`,
+  //       currentVal: clicked,
+  //       lastClicked: clicked,
+  //       prevVal: prevState.currentVal
+  //     }));
+  //   } else {
+  //     this.setState(prevState => ({
+  //       fullExpression: prevState.result.concat(clicked),
+  //       currentVal: clicked,
+  //       lastClicked: clicked,
+  //       prevVal: prevState.currentVal,
+  //       evaluated: false
+  //     }));
+  //   }
+  // };
 
   handleEvaluate = () => {
     const { lastClicked, fullExpression } = this.state;
@@ -228,7 +264,6 @@ export default class App extends Component {
     }
   };
 
-  
   render() {
     const { fullExpression, currentVal, result, evaluated } = this.state;
     return (
