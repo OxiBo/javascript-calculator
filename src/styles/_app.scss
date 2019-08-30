@@ -7,47 +7,51 @@ div#app {
 
   .content {
     flex: 1;
-  }
-  header {
-    text-align: center;
-    margin: 20px;
-    h1 {
+    header {
+      text-align: center;
       margin: 20px;
-      color: beige;
+      h1 {
+        margin: 20px;
+        color: beige;
+      }
+  
+      // styling taken from here - https://css-tricks.com/examples/hrs/
+      hr {
+        overflow: visible; /* For IE */
+        height: 30px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px 0 0 0;
+        border-radius: 20px;
+      }
+      hr:before {
+        /* Not really supposed to work, but does */
+        display: block;
+        content: "";
+        height: 30px;
+        margin-top: -31px;
+        border-style: solid;
+        border-color: black;
+        border-width: 0 0 1px 0;
+        border-radius: 20px;
+      }
     }
-
-    // styling taken from here - https://css-tricks.com/examples/hrs/
-    hr {
-      overflow: visible; /* For IE */
-      height: 30px;
-      border-style: solid;
-      border-color: black;
-      border-width: 1px 0 0 0;
-      border-radius: 20px;
-    }
-    hr:before {
-      /* Not really supposed to work, but does */
-      display: block;
-      content: "";
-      height: 30px;
-      margin-top: -31px;
-      border-style: solid;
-      border-color: black;
-      border-width: 0 0 1px 0;
-      border-radius: 20px;
+  
+    main {
+      border: 2px solid darkgreen;
+      border-radius: $borderRadius;
+      padding: 15px;
+      margin: 15px;
+      background-color: $BodyColor;
+      // flex: 1;
     }
   }
 
-  main {
-    border: 2px solid darkgreen;
-    border-radius: $borderRadius;
-    padding: 15px;
-    background-color: $BodyColor;
-    flex: 1;
-  }
+  
 
   footer {
     text-align: center;
+    padding: 10px;
     font-style: italic;
   }
 }
