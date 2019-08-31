@@ -34,6 +34,7 @@ export default class App extends Component {
   }
 
   handleKeyPress = e => {
+
     const pressed = e.key.toString();
     switch (true) {
       case /[0-9]/.test(e.key):
@@ -58,6 +59,29 @@ export default class App extends Component {
       default:
         return null;
     }
+
+    const buttons = {
+      "7": "seven",
+      "8": "eight",
+      "9": "nine",
+      "4": "four",
+      "5": "five",
+      "6": "six",
+      "1": "one",
+      "2": "two",
+      "3": "three",
+      "0": "zero",
+      ".": "decimal",
+      "+": "add",
+      "-": "subtract",
+      "*": "multiply",
+      "/": "divide",
+      "=": "equals",
+      "Enter": "equals",
+      "Backspace": "clearLast"
+    };
+
+this.changeStyle(null, document.getElementById(buttons[pressed]))
   };
 
   onKeyPress = () => {
@@ -83,8 +107,9 @@ export default class App extends Component {
   };
 
   // change styles of the button when it's clicked
-  changeStyle = e => {
-    e.target.classList.add("clicked");
+  changeStyle = (e, node) => {
+    const domElement = node || e.target;
+    domElement.classList.add("clicked");
     removeClass(
       document.querySelectorAll(".calcButton"),
       "transform",
