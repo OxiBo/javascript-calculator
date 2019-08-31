@@ -39,7 +39,6 @@ div#keyBoard {
 
 div#clear,
 div#clearLast,
-// div#toggleSign,
 div#zero,
 div#decimal,
 div#equals {
@@ -48,14 +47,13 @@ div#equals {
   justify-content: center;
 }
 
-div#clear:hover,
-div#clearLast:hover,
-// div#toggleSign:hover,
-div#zero:hover,
-div#decimal:hover,
-div#equals:hover {
-  background-color: darken($BodyColor, 40%);
-}
+// div#clear:hover,
+// div#clearLast:hover,
+// div#zero:hover,
+// div#decimal:hover,
+// div#equals:hover {
+//   background-color: darken($BodyColor, 40%);
+// }
 
 div#clear {
   grid-area: ac;
@@ -79,9 +77,9 @@ div#operators {
     align-items: center;
     justify-content: center;
   }
-  div:hover {
-    background-color: darken($BodyColor, 40%);
-  }
+  // div:hover {
+  //   background-color: darken($BodyColor, 40%);
+  // }
 }
 
 div#board {
@@ -100,11 +98,33 @@ div#board {
     align-items: center;
     justify-content: center;
   }
-  div:hover {
-    background-color: darken($BodyColor, 40%);
-  }
+  // div:hover {
+  //   background-color: darken($BodyColor, 40%);
+  // }
 }
 
 div#equals {
   grid-area: equals;
+}
+
+@media only screen and (min-width: 768px) {
+  div#clear:hover,
+  div#clearLast:hover,
+  div#zero:hover,
+  div#decimal:hover,
+  div#equals:hover {
+    background-color: darken($BodyColor, 40%);
+  }
+
+  div#operators {
+    div:hover {
+      background-color: darken($BodyColor, 40%);
+    }
+  }
+
+  div#board {
+    div:hover {
+      background-color: darken($BodyColor, 40%);
+    }
+  }
 }

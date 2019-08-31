@@ -5,21 +5,27 @@ div#calc-display {
   text-align: right;
   margin-bottom: 15px;
   border-radius: $borderRadius;
-  
 
   div {
     word-wrap: break-word;
     line-height: 1.6;
-    width: 400px;
+    width: 100%;
     padding: 10px;
     min-height: 60px;
     color: white;
     border-radius: $borderRadius;
-    box-shadow: inset 0 0 10px #0000D1;
+    box-shadow: inset 0 0 10px #0000d1;
   }
 
   #operations-display {
     border-bottom: 1px solid #000;
-    
+  }
+}
+
+@media only screen and (min-width: 590px) {
+  div#calc-display {
+    div {
+      max-width: 400px;
+    }
   }
 }

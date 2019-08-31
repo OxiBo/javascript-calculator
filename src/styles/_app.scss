@@ -6,7 +6,7 @@ div#app {
   align-items: center;
 
   .content {
-    flex: 1;
+    // flex: 1;
     header {
       text-align: center;
       margin: 20px;
@@ -14,7 +14,7 @@ div#app {
         margin: 20px;
         color: beige;
       }
-  
+
       // styling taken from here - https://css-tricks.com/examples/hrs/
       hr {
         overflow: visible; /* For IE */
@@ -36,8 +36,9 @@ div#app {
         border-radius: 20px;
       }
     }
-  
+
     main {
+      max-width: 95vw;
       border: 2px solid darkgreen;
       border-radius: $borderRadius;
       padding: 15px;
@@ -47,11 +48,15 @@ div#app {
     }
   }
 
-  
-
   footer {
     text-align: center;
     padding: 10px;
     font-style: italic;
+  }
+}
+
+@media only screen and (min-width: 590px) {
+  div#app {
+    max-width: 400px;
   }
 }
