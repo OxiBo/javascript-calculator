@@ -5,7 +5,7 @@ div#keyBoard {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 50px);
   // grid-gap: 0 0;
-  grid-gap: 10px;
+  grid-gap: 5px;
   grid-template-areas:
     "ac ac ce  operators"
     "board  board  board  operators"
@@ -69,7 +69,7 @@ div#clearLast {
 
 div#operators {
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 5px;
   grid-area: operators;
   border: none;
   div {
@@ -85,7 +85,7 @@ div#operators {
 div#board {
   grid-area: board;
   grid-column: 1 / span 3;
-  grid-gap: 10px;
+  grid-gap: 5px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(4, 1fr);
@@ -108,6 +108,18 @@ div#equals {
 }
 
 @media only screen and (min-width: 768px) {
+  div#keyBoard {
+    grid-gap: 10px;
+  }
+
+  div#board {
+    grid-gap: 10px;
+  }
+
+  div#operators {
+    grid-gap: 10px;
+  }
+
   div#clear:hover,
   div#clearLast:hover,
   div#zero:hover,
